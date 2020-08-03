@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>getElementById test</title>
+
+<script>
+var value;
+function change(){
+	var span = document.getElementById("mySpan");
+	var style = window.getComputedStyle(span);
+	value = style.getPropertyValue("color");
+	span.style.color="green";
+	span.style.fontSize="30px";
+	span.style.border="3px dotted magenta";
+	span.style.display="block";
+	span.style.width="6em";
+	span.style.margin="20px";
+	
+	var h3 = document.getElementById("h3");
+	h3.style.display="inline-block";
+	h3.innerHTML="<img src='../media/pika.png'>";
+}
+
+
+</script>
+</head>
+<body>
+	<p style="color:blue">이것은
+	<span id="mySpan" style="color:red">
+	문장입니다.
+	</span>
+	</p>
+	<input type="button" value="스타일 변경" onclick="change()">
+	
+	<script>
+	document.write("<h3 id='h3' style='display:none'>"+value+"</h3>");
+	</script>
+</body>
+</html>

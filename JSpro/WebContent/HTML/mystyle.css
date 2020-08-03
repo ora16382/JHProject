@@ -1,0 +1,12 @@
+
+	h1 {color:white; text-align:center;}
+	body {background-color:green; height:950px;}
+	div {display:inline-block}
+	div#total {width:100%; height:80%}
+	div#left {width:18%; height:80%; margin:10px;}
+	div#right {width:73%; height:80%; background-color:rgb(100,255,100); margin:10px; position:absolute; margin:0px;}
+	div.menu {width:90%; background-color:pink; margin:5px; margin-right:0px; height:2em; padding:5px; font-size:1.2em;}
+	div#menuList {position:relative; top:50px;}
+	div.egg{width:10%; height:28%; margin:12px;}
+	img{width:100%; height:100%;}
+	p {color:brown;font:italic bold 100px sans-serif;textAlign:center;}

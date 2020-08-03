@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script>
+	function drawCircle(ctx, x, y, radius,color){
+		ctx.beginPath();
+		ctx.strokeStyle=color;
+		ctx.lineWidth=5;
+		ctx.arc(x,y,radius,0,7,false);
+		ctx.stroke();
+	}
+</script>
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="220" style="background-color:aliceblue">
+</canvas>
+<script>
+	var canvas = document.getElementById("myCanvas");
+	var context = canvas.getContext("2d");
+	
+	var colors = ["blue", "green", "yellow","magenta","red"];
+	
+	for(var i=0; i<colors.length;i++){
+		if(i%2!=1) drawCircle(context, 40+45*i, 40, 40, colors[i]);
+		else drawCircle(context, 40+42*i, 80, 40, colors[i]);
+	}
+	
+</script>
+
+</body>
+</html>

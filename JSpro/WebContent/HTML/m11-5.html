@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+<body onkeydown="function1(event)">
+<label>x <input class="input" type="text" value="0"></label>
+<label>y <input class="input" type="text" value="0"></label>
+<br>
+<label>width <input class="input" type="text" value="0"></label>
+<label>height <input class="input" type="text" value="0"></label>
+<br>
+<label>선굵기 <input class="input" type="text" value="0"></label>
+<label>선 색 <input id="color" type="color"></label>
+<br>
+<input type="button" value="그리기" onclick="draw()" id="draw">
+<input type="button" value="지우기" onclick="eraser()" style="margin-left:200px">
+<br>
+<canvas id="myCanvas" width="1000" height="700" style="background-color:aliceblue"></canvas>
+
+<script>
+	var canvas = document.getElementById("myCanvas");
+	var context = canvas.getContext("2d");
+	var inputs = document.getElementsByClassName("input");
+	var color = document.getElementById("color");
+	
+	function draw(){
+		context.strokeStyle=color.value;
+		context.lineWidth=parseInt(inputs[4].value);
+		context.strokeRect(parseInt(inputs[0].value),parseInt(inputs[1].value),parseInt(inputs[2].value),parseInt(inputs[3].value));
+	}
+	
+	function eraser(){
+		context.clearRect(0,0,canvas.width,canvas.height);
+	}
+	
+	function function1(e){
+		
+		if(e.key=="Enter") {
+	
+			document.getElementById("draw").click();
+		}
+	}
+</script>
+
+</body>
+</html>

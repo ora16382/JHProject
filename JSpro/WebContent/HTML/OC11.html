@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>캔버스에 파이 차트 그리기</title>
+</head>
+<body>
+<h2>학점 별로 학생 수를 입력하면 파이 차트로 비율 그리기</h2>
+<hr>
+<label>A <input class="input" type="text" value="0">명</label>
+<label>B <input class="input" type="text" value="0">명</label>
+<label>C <input class="input" type="text" value="0">명</label>
+<label>D <input class="input" type="text" value="0">명</label>
+<label>E <input class="input" type="text" value="0">명</label>
+<input type="button" value="차트 그리기" onclick="draw()">
+<canvas id="myCanvas" width="1000" height="700" style="background-color:aliceblue"></canvas>
+
+<script>
+var colors = ["blue", "green", "yellow","magenta","red"];
+var grades = ["A","B","C","D","E"];
+var inputs = document.getElementsByClassName("input");
+var canvas, context;
+canvas = document.getElementById("myCanvas");
+context = canvas.getContext("2d");
+var cw=canvas.width/2; var ch = canvas.height/2;
+
+
+function draw(){
+	var sum =0;
+		context.clearRect(0,0,canvas.width,canvas.height);
+		
+		for(var i=0; i<inputs.length; i++){
+			sum+=parseInt(inputs[i].value);	
+		}
+		
+		var startNum = 0;
+		for(var i=0; i<inputs.length; i++){
+			context.beginPath();
+			context.fillStyle=colors[i];
+			context.font="20px arial";
+			context.moveTo(cw,ch);
+			var num =(parseInt(inputs[i].value)/sum)*360;
+			var rad = num*Math.PI/180;
+			context.fillText(grades[i]+" 학점 "+Math.floor(parseInt(inputs[i].value)/sum*100)+"% : "+colors[i],10,20+20*i);
+			context.arc(cw,ch,cw/2,startNum,rad+startNum,false);
+	
+			context.closePath();
+			context.fill();
+			startNum+=rad;
+		}
+		
+}
+</script>
+</body>
+</html>

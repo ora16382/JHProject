@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>그리기</title></head>
+<body>
+<h3>그리기</h3>
+<hr>
+<canvas id="myCanvas" style="background-color:aliceblue"
+	 width="500" height="400"></canvas>
+	 
+<input type="button" onclick="Eraser()" value="Eraser">
+<script>
+var canvas, context;
+canvas = document.getElementById("myCanvas");
+context = canvas.getContext("2d");
+context.lineWidth=2;
+context.strokeStyle="blue";
+
+canvas.addEventListener("mousedown", function (e) { down(e)}, false);
+canvas.addEventListener("mouseup", function (e) {up(e)}, false);
+canvas.addEventListener("mousemove", function (e) {move(e)}, false);
+canvas.addEventListener("mouseout", function (e) {out(e)}, false);
+
+var startX, startY;
+var dragging = false;
+function down(e){
+	startX = e.offsetX;
+	startY = e.offsetY;
+	dragging = true;
+}
+
+function up(e){
+	dragging = false;
+}
+
+function move(e){
+	if(!dragging) return;
+	
+	var curX = e.offsetX, curY = e.offsetY;
+	draw(curX, curY);
+	startX = curX; startY = curY;
+}
+
+function out(e){
+	dragging = false;
+}
+
+function draw(curX, curY){
+	context.beginPath();
+	context.moveTo(startX, startY);
+	context.lineTo(curX, curY);
+	context.stroke();
+} 
+
+function Eraser(){
+	context.clearRect(0,0,canvas.width, canvas.height);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+<body>
+<h2>mousedown과 mouseup으로 선그리기</h2>
+<hr>
+<canvas id="myCanvas" width="1000" height="700" style="background-color:aliceblue"></canvas>
+
+<script>
+	var canvas = document.getElementById("myCanvas");
+	var context = canvas.getContext("2d");
+	context.lineWidth=2;
+	context.strokeStyle="black";
+	canvas.addEventListener("mousedown",function(e){down(e)},false);
+	canvas.addEventListener("mouseup",function(e){up(e)},false);
+	canvas.addEventListener("mousemove",function(e){move(e)},false);
+	canvas.addEventListener("mouseout",function(e){out(e)},false);
+	
+	var startX, startY;
+	var dragging=false;
+	function down(e){
+		context.clearRect(0,0,canvas.width,canvas.height);
+		startX = e.offsetX;
+		startY = e.offsetY;
+		dragging = true;
+
+	}
+	
+	function up(e){
+		dragging=false;
+	}
+	
+	function move(e){
+		if(!dragging) return;
+		
+		context.clearRect(0,0,canvas.width,canvas.height);
+		var curX = e.offsetX, curY = e.offsetY;
+		context.beginPath();
+		context.moveTo(startX,startY);
+		context.lineTo(curX,curY);
+		context.stroke();
+	}
+	
+	function out(e){
+		dragging=false;
+	}
+</script>
+
+</body>
+</html>

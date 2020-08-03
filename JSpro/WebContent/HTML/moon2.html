@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function change(){
+		var img = document.getElementById("img");
+		var fruit = document.getElementsByName("fruit");
+		for(var i=0; i<fruit.length; i++){
+		if(fruit[i].checked==true) img.src="../media/"+fruit[i].value+".png"	
+		}
+		
+	}
+</script>
+</head>
+<body onload="change()">
+<h3>라디오 버튼을 클릭하면 이미지를 출력합니다.</h3>
+<label><input type="radio" name="fruit" value="banana" onclick="change()">바나나</label>
+<label><input type="radio" name="fruit" value="manggo" onclick="change()" checked>망고</label>
+<label><input type="radio" name="fruit" value="apple" onclick="change()">사과</label>
+<div><img id="img" src=""></div>
+
+</body>
+</html>

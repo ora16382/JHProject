@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="220" style="background-color:aliceblue">
+</canvas>
+<script>
+	var canvas = document.getElementById("myCanvas");
+	var context = canvas.getContext("2d");
+	
+	var image = new Image();
+	image.onload = function(){
+		context.drawImage(image,20,20,150,130);
+		context.font = "italic 30px arial";
+		context.fillStyle="olive";
+		context.fillText("PiKaChu",20,80);
+	}
+	image.src = "../media/pika.png";
+	
+</script>
+
+</body>
+</html>

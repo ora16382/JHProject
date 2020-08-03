@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div {
+	display:inline-block;
+	width:150px;
+	height:30px;
+}
+</style>
+<script type="text/javascript">
+	function Account(owner, code, balance){
+		this.owner = owner;
+		this.code = code;
+		this.balance = balance;
+		
+		this.inquiry = function (){
+			return this.balance;
+		};
+		
+		this.deposit = function (money){
+			this.balance+=money;
+		}
+		
+		this.withdraw = function (money){
+			this.balance-=money;
+			return money;
+		}
+		
+	}
+	</script>
+</head>
+<body>
+<h3>라면을 만드는데 필요한 재료</h3>
+<hr>
+<script>
+var acc = new Account("확이태","111",35000);
+
+	document.write(acc.inquiry()); 
+	
+
+var itemlist = ["라면","계란","물","파"];
+
+document.write("<ul>");
+for(var i=0; i<itemlist.length; i++){
+	document.write("<li>"+itemlist[i]);
+}
+document.write("</ul>");
+
+</script>
+
+<h3>난수 10개 생성</h3>
+
+<script>
+
+
+/*
+var num = [];
+var i=0;
+while(i<5){
+	num[i] = parseInt(prompt("정수 입력"));
+	i++;
+	
+}
+
+num.reverse();
+
+for(var i=0; i<num.length; i++){
+	document.write(num[i]+"&nbsp");	
+} */
+/*
+var date = new Date();
+
+if(date.getHours()<=12) document.body.style.backgroundColor="orange";
+else document.body.style.backgroundColor="lightskyblue";
+
+if(date.getDay()==0) document.body.style.backgroundColor="pink";
+else document.body.style.backgroundColor="gold";
+
+	
+	document.write("현재시간 : "+date.getHours()+"시 "+date.getMinutes()+"분 "+date.getSeconds()+"초 "); */
+	
+	var colorNames =["maroon","red","orange","yellow","olive","purple","fuchsia"];
+	
+	for(var i=0; i<colorNames.length; i++){
+		document.write("<div style='background-color:"+colorNames[i]+"'>"+colorNames[i]+"</div>");
+	}
+	
+	document.write("<br><br>");
+	for(var i=0; i<16; i++){
+		var num1 = Math.floor(Math.random()*256);
+		var num2 = Math.floor(Math.random()*256);
+		var num3 = Math.floor(Math.random()*256);
+		document.write("<div style='background-color:rgb("+num1+","+num2+","+num3+")'>"+"rgb("+num1+","+num2+","+num3+")</div>");	
+	}
+
+	var bookArr = [];
+	
+	for(var i=0; i<3; i++){
+		var strOri = prompt("콤마(,) 로 분리 해라");
+		document.write(strOri+"<br>");
+		var strArr = strOri.split(",");
+		var book = new Object();
+		book.title= strArr[0].trim();
+		book.author= strArr[1].trim();
+		book.price= parseInt(strArr[2].trim());
+		bookArr[i]=book;				
+	
+	}
+	document.write("<hr><br>가장 가격이 비싼 책은 : ");
+	var big = bookArr[0];
+
+	for(var i=1; i<bookArr.length; i++){
+	
+		if(big.price<bookArr[i].price) big = bookArr[i];
+	}
+	
+	document.write(big.title);
+	
+	
+	
+	
+</script>
+</body>
+</html>

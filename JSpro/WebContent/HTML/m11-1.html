@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script>
+	function drawCircle(ctx, x, y, radius){
+		ctx.beginPath();
+		ctx.strokeStyle="black";
+		ctx.arc(x,y,radius,0,7,false);
+		ctx.stroke();
+	}
+</script>
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="220" style="background-color:aliceblue">
+</canvas>
+<script>
+	var canvas = document.getElementById("myCanvas");
+	var context = canvas.getContext("2d");
+	drawCircle(context, 100, 100, 80);
+	drawCircle(context, 150, 150, 30);
+</script>
+
+</body>
+</html>

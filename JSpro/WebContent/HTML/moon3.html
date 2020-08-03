@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+body {
+	height:1000px;
+	
+}
+
+/*
+div {
+position:absolute;
+visibility:hidden;
+width:70px;
+height:100px;
+background:maroon;
+}*/
+</style>
+<script>
+	function result(e){
+		if(e.key=="Enter"){
+			document.getElementsByName("result")[0].value=eval(document.getElementsByName("expr")[0].value);
+		}
+			
+	}
+	
+	
+	function function1(e){
+		var div = document.getElementById("div");
+		div.style.left=e.clientX+1+"px";
+		div.style.top=e.clientY+1+"px";
+	}
+	
+	function function2(){
+		var num1 = Math.floor(Math.random()*256);
+		var num2 = Math.floor(Math.random()*256);
+		var num3 = Math.floor(Math.random()*256);
+		document.body.style.backgroundColor= "rgb("+num1+","+num2+","+num3+")";
+	}
+	var x=1, y=1;
+	
+	function function3(e, obj){
+		if(e.wheelDelta<0){
+			if(x>=2.0 && y>=2.0) {
+				return;
+			}
+			x+=0.05;y+=0.05;
+			obj.style.transform = "scale("+x+","+y+")";
+		}else{
+			if(x<=0.2 && y<=0.2) {
+				return;
+			}
+			x-=0.05;y-=0.05;
+			obj.style.transform = "scale("+x+","+y+")";
+		}
+	}
+	
+	window.onmouseover=function(e){
+		if(e.target.tagName=="SPAN") e.target.style.textDecoration = "underline";
+	};
+	
+	window.onmouseout=function(e){
+		if(e.target.tagName=="SPAN") e.target.style.textDecoration = "none";
+	};
+	
+	function function4(obj){
+		var li = document.getElementsByTagName("li");
+		
+		for (var i=0; i<li.length; i++) li[i].style.fontSize="1.0em"; 
+		obj.style.fontSize="1.2em";
+	}
+	
+	function function5(e, obj){
+		var child = obj.firstElementChild;
+		child.style.visibility="visible";
+		child.style.left=e.clientX+1+"px";
+		child.style.top=e.clientY+1+"px";
+	}
+	
+	
+	function function6(obj){
+		obj.firstElementChild.style.visibility="hidden";
+	}
+</script>
+</head>
+<body onmouseover="function1(event)" ondblclick="function2()">
+식<input type="text" name="expr" onkeydown="result(event)">
+<br>
+값<input type="text" name="result">
+<br>
+<div style="position:absolute;" id="div"><img src="../media/pika.png" width="20" height="20"></div>
+
+<img src="../media/manggo.png" onmousewheel="function3(event, this)">
+
+
+<p>
+span 태그에 대해서만 <span>마우스가</span> 올라올 때 밑줄이 그어지고 <span>마우스가</span> 내려갈때 밑줄이 사라지도록 하라.
+</p>
+<ul>
+<li onclick="function4(this)" onmouseover="function5(event, this)" onmouseout="function6(this)">wkwjsrjfh eogksalsrnr dlfwn<div>첫번째</div></li>
+<li onclick="function4(this)" onmouseover="function5(event, this)" onmouseout="function6(this)">책 100권 읽기<div>두번째</div></li>
+<li onclick="function4(this)" onmouseover="function5(event, this)" onmouseout="function6(this)">철인 3종 경기 준비<div>세번째</div></li>
+<li onclick="function4(this)" onmouseover="function5(event, this)" onmouseout="function6(this)">자바스크립트 정복<div>네번째</div></li>
+</ul>
+</body>
+</html>

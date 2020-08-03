@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	button {
+		width:90px;
+	}
+</style>
+<script>
+	function function1(obj){
+		var text = document.getElementById("input");
+		if(!isNaN(parseInt(obj.value))){
+			text.value += obj.value;
+		}else if(obj.value=="-" || obj.value=="+" || obj.value=="/" ||obj.value=="*"){
+				text.value += obj.value;	
+		}else if(obj.value=="="){
+			text.value=eval(text.value);
+		}else if(obj.value=="cancel"){
+			text.value=text.value.substring(0,text.value.length-1);
+		}else if(obj.value=="BACK"){
+			text.value="";
+		}
+	}
+</script>
+</head>
+<body>
+<h3>계산기 만들기</h3>
+<hr>
+
+<input type="text" id="input" size=50>
+<br>
+<button type="button" value="BACK" onclick="function1(this)">BACK</button>
+<button type="button" value="cancel" onclick="function1(this)">CE</button>
+<button type="button" value="cancel" onclick="function1(this)">C</button>
+<button type="button" value="=" onclick="function1(this)">=</button>
+<br>
+<button type="button" value="7" onclick="function1(this)">7</button>
+<button type="button" value="8" onclick="function1(this)">8</button>
+<button type="button" value="9" onclick="function1(this)">9</button>
+<button type="button" value="/" onclick="function1(this)">/</button>
+<br>
+<button type="button" value="4" onclick="function1(this)">4</button>
+<button type="button" value="5" onclick="function1(this)">5</button>
+<button type="button" value="6" onclick="function1(this)">6</button>
+<button type="button" value="*" onclick="function1(this)">*</button>
+<br>
+<button type="button" value="1" onclick="function1(this)">1</button>
+<button type="button" value="2" onclick="function1(this)">2</button>
+<button type="button" value="3" onclick="function1(this)">3</button>
+<button type="button" value="-" onclick="function1(this)">-</button>
+<br>
+<button type="button" value="0" onclick="function1(this)">0</button>
+<button type="button" value="+" onclick="function1(this)">+</button>
+<button type="button">NONE</button>
+<button type="button">NONE</button>
+</body>
+</html>

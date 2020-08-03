@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>마우스 클릭 연습</title>
+<style>
+table {
+	border-collapse : collapse;
+}
+
+td {
+	padding:0px;
+}
+
+div {
+	height:50px;
+}
+</style>
+
+<script>
+	var image = new Image();
+	image.src="../media/pika.png";
+	function randomImage(){
+		var num = Math.floor(Math.random()*100)+1;
+		document.images[num].src=image.src;
+	}
+	
+	
+	function touchImage(obj){
+		if(obj.src==image.src){
+		obj.src="";
+		var num = Math.floor(Math.random()*100)+1;
+		document.images[num].src=image.src;
+		}
+	}
+	
+	window.onfocus=function(){document.body.style.backgroundColor="black";}
+	window.onblur=function(){document.body.style.backgroundColor="lightgray";}
+</script>
+</head>
+<body onload="randomImage()"">
+
+<h3>마우스 클릭 연습</h3>
+<hr>
+<script>
+document.write("<table border='1';><tbody>")
+for(var i=0; i<10; i++){
+	document.write("<tr>")
+	for(var j=0; j<10; j++){
+	document.write("<td width='50px' height='50px'><div><img src=' ' width='50px' height='50px' onclick='touchImage(this)'></div></td>")
+	}
+	document.write("</tr>")
+}
+document.write("</tbody></table>")
+</script>
+<hr>
+</body>
+</html>
