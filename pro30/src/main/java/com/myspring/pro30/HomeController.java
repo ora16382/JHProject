@@ -26,6 +26,9 @@ public class HomeController {
 	public String home(Locale locale, Model model) {
 	//한글테스트입니다.
 		System.out.println("한글테스트입니다.");
+		System.out.println("섹스킹");
+		System.out.println("섹스킹");
+		System.out.println("섹스킹");
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		
