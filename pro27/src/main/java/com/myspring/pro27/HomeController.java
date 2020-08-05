@@ -20,6 +20,7 @@ public class HomeController {
 
 	@RequestMapping(value = "/main.do", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
+		System.out.println("power");
 		System.out.println("sex");
 		return "main";
 		
