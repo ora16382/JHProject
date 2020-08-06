@@ -98,7 +98,7 @@ public class BoardControllerImpl implements BoardController {
 			}
 			    
 			message = "<script>";
-			message += " alert('»õ±ÛÀ» Ãß°¡Çß½À´Ï´Ù.');";
+			message += " alert('ìƒˆê¸€ì„ ì¶”ê°€í•˜ì˜€ìŠµë‹ˆë‹¤.');";
 			message += " location.href='"+multipartRequest.getContextPath()+"/board/listArticles.do'; ";
 			message +=" </script>";
 		    resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
@@ -114,7 +114,7 @@ public class BoardControllerImpl implements BoardController {
 			}
 			
 			message = " <script>";
-			message +=" alert('¿À·ù°¡ ¹ß»ıÇß½À´Ï´Ù. ´Ù½Ã ½ÃµµÇØ ÁÖ¼¼¿ä');";
+			message +=" alert('ì˜¤ë¥˜ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. ë‹¤ì‹œ ì‹œë„í•´ ì£¼ì„¸ìš”');";
 			message +=" location.href='"+multipartRequest.getContextPath()+"/board/articleForm.do'; ";
 			message +=" </script>";
 			resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
@@ -124,7 +124,7 @@ public class BoardControllerImpl implements BoardController {
 	  }
 	
 	@Override
-	@RequestMapping(value="/board/*Form.do",method= {RequestMethod.GET})
+	@RequestMapping(value="/board/*Form.do",method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView form(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String viewName = (String)request.getAttribute("viewName");
 		ModelAndView mav = new ModelAndView(viewName);
@@ -183,8 +183,8 @@ public class BoardControllerImpl implements BoardController {
 		List removeFileList = new ArrayList();
 		for(int i=0; i<count; i++) {
 			String origin = multipartRequest.getParameter("imageFileNO"+i);
-	//		System.out.println("¸Å°³º¯¼ö ÀÌ¸§"+multipartRequest.getParameter("imageFileNO"+i));
-			if(origin!=null&&origin!="") removeFileList.add(Integer.parseInt(origin));    // ¿ø·¡ ÆÄÀÏÀÇ ¹øÈ£¸¦ °¡Á®¿È
+
+			if(origin!=null&&origin!="") removeFileList.add(Integer.parseInt(origin));   
 		}
 		articleMap.put("removeFileList", removeFileList);
 		System.out.println(removeFileList);
@@ -193,7 +193,7 @@ public class BoardControllerImpl implements BoardController {
 		try {
 		List rmList =boardService.modArticle(articleMap);
 		
-		//ÀÓ½Ã Æú´õ¿¡ ÀÖ´Â ÆÄÀÏ ¿Å±â±â
+
 		if(imageFileList!=null&&imageFileList.size()!=0) {
 			for(ImageVO imageVO : imageFileList){
 			File srcFile = new File(ARTICLE_IMAGE_REPO+"\\"+"temp"+"\\"+imageVO.getImageFileName());
@@ -210,7 +210,7 @@ public class BoardControllerImpl implements BoardController {
 		}
 
 			message = "<script>";
-			   message += " alert('±ÛÀ» ¼öÁ¤Çß½À´Ï´Ù.');";
+			   message += " alert('ìˆ˜ì •ë˜ì—ˆìŠµë‹ˆë‹¤.');";
 			   message += " location.href='"+multipartRequest.getContextPath()+"/board/viewArticle.do?articleNO="+articleNO+"';";
 			   message +=" </script>";
 		       resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
@@ -220,7 +220,7 @@ public class BoardControllerImpl implements BoardController {
 		      srcFile.delete();
 		    	}
 		      message = "<script>";
-			  message += " alert('¿À·ù°¡ ¹ß»ıÇß½À´Ï´Ù.´Ù½Ã ¼öÁ¤ÇØÁÖ¼¼¿ä');";
+			  message += " alert('ì˜¤ë¥˜ê°€ ë°œìƒí•˜ì˜€ìŠµë‹ˆë‹¤. ë‹¤ì‹œ ì‹œë„í•´ ì£¼ì„¸ìš”');";
 			  message += " location.href='"+multipartRequest.getContextPath()+"/board/viewArticle.do?articleNO="+articleNO+"';";
 			  message +=" </script>";
 		      resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
@@ -246,14 +246,14 @@ public class BoardControllerImpl implements BoardController {
 			
 			
 			message = "<script>";
-			message += " alert('±ÛÀ» »èÁ¦Çß½À´Ï´Ù.');";
+			message += " alert('ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.');";
 			message += " location.href='"+request.getContextPath()+"/board/listArticles.do';";
 			message +=" </script>";
 		    resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
 		       
 		}catch(Exception e) {
 			message = "<script>";
-			message += " alert('ÀÛ¾÷Áß ¿À·ù°¡ ¹ß»ıÇß½À´Ï´Ù.´Ù½Ã ½ÃµµÇØ ÁÖ¼¼¿ä.');";
+			message += " alert('ì˜¤ë¥˜ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. ë‹¤ì‹œ ì‹œë„í•´ì£¼ì„¸ìš”.');";
 			message += " location.href='"+request.getContextPath()+"/board/listArticles.do';";
 			message +=" </script>";
 		    resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);

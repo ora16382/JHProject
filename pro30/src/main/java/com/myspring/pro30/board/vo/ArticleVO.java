@@ -16,6 +16,7 @@ public class ArticleVO {
 	private String imageFileName;
 	private String id;
 	private Date writeDate;
+	private int views;
 	
 	public ArticleVO() {
 		
@@ -100,7 +101,7 @@ public class ArticleVO {
 
 	public void setImageFileName(String imageFileName) {
 		try {
-			this.imageFileName = URLEncoder.encode(imageFileName, "UTF-8");//ÆÄÀÏÀÌ¸§¿¡ Æ¯¼ö¹®ÀÚ°¡ ÀÖÀ» °æ¿ì ÀÎÄÚµùÇÕ´Ï´Ù.
+			this.imageFileName = URLEncoder.encode(imageFileName, "UTF-8");//ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ï¿½ï¿½ Æ¯ï¿½ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Úµï¿½ï¿½Õ´Ï´ï¿½.
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
@@ -123,6 +124,16 @@ public class ArticleVO {
 
 	public void setWriteDate(Date writeDate) {
 		this.writeDate = writeDate;
+	}
+
+
+	public int getViews() {
+		return views;
+	}
+
+
+	public void setViews(int views) {
+		this.views = views;
 	}
 	
 	
