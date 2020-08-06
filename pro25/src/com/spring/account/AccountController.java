@@ -16,7 +16,11 @@ public class AccountController extends MultiActionController{
 	public ModelAndView sendMoney(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		ModelAndView mav = new ModelAndView();
 		accService.sendMoney();
+<<<<<<< HEAD
 		mav.setViewName("result");
+=======
+		mav.setViewName("result2");
+>>>>>>> refs/remotes/origin/master
 		return mav;
 	}
 }
