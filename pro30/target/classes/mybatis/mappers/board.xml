@@ -38,11 +38,26 @@
 	
 	<select id="insertNewArticle" parameterType="java.util.Map">
 		<![CDATA[
-			insert into t_board(articleNO, title, content, imageFileName, id)
-			VALUES(#{articleNO},#{title},#{content},null,#{id})
+			insert into t_board(articleNO, parentNO, title, content, imageFileName, id)	
 		]]>
+		
+		<choose>
+		<when test="parentNO != null and parentNO != ''">   <!--  articleMap 에서 parentNO가 없을때 null 에서 걸림 -->
+				VALUES(#{articleNO},#{parentNO},#{title},#{content},null,#{id})
+			</when>
+			<otherwise>
+				VALUES(#{articleNO},0,#{title},#{content},null,#{id})
+			</otherwise>
+		</choose>
 	</select>
 	
+	<update id="viewsUpdate" parameterType="int">
+		<![CDATA[
+			update t_board
+			set views = views+1
+			where articleNO = #{articleNO}
+		]]> 	
+	</update>
 	
 	<select id="selectNewArticleNO" resultType="int">
 		<![CDATA[

@@ -64,7 +64,7 @@ public class BoardControllerImpl implements BoardController {
 			String value=multipartRequest.getParameter(name);
 			articleMap.put(name,value);
 		}
-		
+
 		HttpSession session = multipartRequest.getSession();
 		MemberVO memberVO = (MemberVO) session.getAttribute("member");
 		String id = memberVO.getId();

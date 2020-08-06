@@ -28,7 +28,6 @@ public class BoardDAOImpl implements BoardDAO{
 	public int insertNewArticle(Map articleMap) throws DataAccessException{
 		int articleNO = selectNewArticleNO();
 		articleMap.put("articleNO",articleNO);
-		System.out.println(articleNO);
 		sqlSession.insert("mapper.board.insertNewArticle",articleMap);
 		return articleNO;
 	}
@@ -39,17 +38,22 @@ public class BoardDAOImpl implements BoardDAO{
 	}
 	
 	@Override
+	public void viewsUpdate(int articleNO) throws DataAccessException {
+		 sqlSession.update("mapper.board.viewsUpdate",articleNO); 
+	}
+	
+	@Override
 	public List selectImageFileList(int articleNO) {
 		return sqlSession.selectList("mapper.board.selectImageFileList",articleNO);
 	}
 	@Override
 	public void updateArticle(Map articleMap) throws DataAccessException{
-//		System.out.println("업데이트아티클");
+
 		sqlSession.update("mapper.board.updateArticle",articleMap);
 	}
 	@Override
 	public void updateImageFileList(Map articleMap) throws DataAccessException{
-//		System.out.println("업데이트 이미지 파일리스트");
+
 		Map temp = new HashMap();
 		List list = (ArrayList)articleMap.get("imageFileList");
 		List rmList = (ArrayList)articleMap.get("removeFileList");

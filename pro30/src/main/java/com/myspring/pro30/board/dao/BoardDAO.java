@@ -18,4 +18,5 @@ public interface BoardDAO {
 	public List selectImageFileList(int articleNO) throws DataAccessException;
 	public void updateImageFileList(Map articleMap) throws DataAccessException;
 	public List<ImageVO> removeImageList(Map articleMap) throws DataAccessException;
+	public void viewsUpdate(int articleNO) throws DataAccessException;
 }

@@ -28,8 +28,13 @@
 	</definition>
 	
 	<definition name="/member/memberForm" extends="baseLayout">
-		<put-attribute name="title" value="회원목록창" />
+		<put-attribute name="title" value="회원가입창" />
 		<put-attribute name="body" value="/WEB-INF/views/member/memberForm.jsp"/>
+	</definition>
+	
+	<definition name="/member/modMember" extends="baseLayout">
+		<put-attribute name="title" value="회원가입창" />
+		<put-attribute name="body" value="/WEB-INF/views/member/modMember.jsp"/>
 	</definition>
 	
 	<definition name="/member/loginForm" extends="baseLayout">

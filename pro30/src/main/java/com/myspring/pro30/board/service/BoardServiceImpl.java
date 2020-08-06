@@ -37,6 +37,7 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public Map viewArticle(int articleNO) throws Exception{
 		Map articleMap = new HashMap();
+		boardDAO.viewsUpdate(articleNO);
 		ArticleVO articleVO = boardDAO.selectArticle(articleNO);
 		List<ImageVO> imageFileList = boardDAO.selectImageFileList(articleNO);
 		articleMap.put("article", articleVO);

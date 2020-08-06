@@ -23,7 +23,7 @@
 	}
 	
 	if('${member.id }'=="wnsgud14"){
-		alert("관리자 계정으로 접속하셨습니다..");
+		alert("관리자 계정으로 접속하셨습니다.");
 	}
 </script>
 </head>
@@ -35,6 +35,7 @@
       <td><b>이름</b></td>
       <td><b>이메일</b></td>
       <td><b>가입일</b></td>
+      <td><b>수정하기</b></td>
       <td><b>삭제하기</b></td>
    </tr>
    
@@ -45,6 +46,7 @@
       <td>${member.name}</td>
       <td>${member.email}</td>
       <td>${member.joinDate}</td>
+      <td><a href="${contextPath}/member/modMember.do?id=${member.id}">수정하기</a></td>
       <td><a href="${contextPath}/member/removeMember.do?id=${member.id}">삭제하기</a></td>	
     </tr>
   </c:forEach>   

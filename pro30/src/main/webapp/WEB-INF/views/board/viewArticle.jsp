@@ -84,15 +84,23 @@
 	 
 	 }
 	 
-	 function fn_reply_form(url, parentNO){
+	 function fn_reply_form(url, parentNO, parentTitle){
 		 var form = document.createElement("form");
 		 form.setAttribute("method", "post");
 		 form.setAttribute("action", url);
 	     var parentNOInput = document.createElement("input");
 	     parentNOInput.setAttribute("type","hidden");
 	     parentNOInput.setAttribute("name","parentNO");
+	     console.log(parentNO);
 	     parentNOInput.setAttribute("value", parentNO);
 	     form.appendChild(parentNOInput);
+	     
+	     var parentArticleTitle = document.createElement("input");
+	     parentArticleTitle.setAttribute("type","hidden");
+	     parentArticleTitle.setAttribute("name","parentTitle");
+	     parentArticleTitle.setAttribute("value", parentTitle);
+	     form.appendChild(parentArticleTitle);
+	     
 	     document.body.appendChild(form);
 		 form.submit();
 	 }
@@ -111,8 +119,10 @@
  </script>
 </head>
 <body>
+	<h6 style="border: 1px solid orange; width: 50px; margin-left: 19em; padding: 1px; " align="right">조회수 :  ${article.views}</h6>
   <form name="frmArticle" method="post"  action="${contextPath}"  enctype="multipart/form-data">
   <table  border=0  align="center">
+
   <tr>
    <td width=150 align="center" bgcolor=#FF9933>
       글번호
@@ -208,7 +218,7 @@
 	    <input type=button value="삭제하기" onClick="fn_remove_article('${contextPath}/board/removeArticle.do', ${article.articleNO})">
 	    </c:if>
 	    <input type=button value="리스트로 돌아가기"  onClick="backToList(this.form)">
-	     <input type=button value="답글쓰기"  onClick="fn_reply_form('${contextPath}/board/replyForm.do', ${article.articleNO})">
+	     <input type=button value="답글쓰기"  onClick="fn_reply_form('${contextPath}/board/replyForm.do', ${article.articleNO}, '${article.title }')">
    </td>
   </tr>
  </table>
