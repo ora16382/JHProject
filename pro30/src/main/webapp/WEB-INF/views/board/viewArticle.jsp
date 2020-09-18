@@ -27,7 +27,7 @@
    var cont=1;
    var max=0;
    
-   var addArticleNum = max+1;
+   var addArticleNum = max+1;   // 이거 지우기
    <%-- ${empty 변수명 ==[] } =='' 이렇게 해야함'' --%>	
      function backToList(obj){
 	    obj.action="${contextPath}/board/listArticles.do";
@@ -56,7 +56,7 @@
 	  
 	  function fn_addFile2(){
 		  $("#d_file").append("<hr>"+"<img src='#'   width=200 height=200 /><br><input type='file' name='imageFileName"+addArticleNum+"' onchange='readURL(this);' />");
-		  addArticleNum++;
+		  addArticleNum++;           // 이거 addArticleNum 대신 max
 	  }
 	  
 	 function fn_modify_article(obj){
