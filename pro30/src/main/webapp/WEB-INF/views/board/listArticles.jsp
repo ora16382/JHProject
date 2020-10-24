@@ -30,7 +30,7 @@
 </head>
 <body>
 <table align="center" border="1"  width="80%"  >
-  <tr height="10" align="center"  bgcolor="lightgreen">
+  <tr height="10" align="center"  bgcolor="#708090">
      <td >글번호</td>
      <td >작성자</td>              
      <td >제목</td>

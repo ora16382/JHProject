@@ -124,7 +124,7 @@
   <table  border=0  align="center">
 
   <tr>
-   <td width=150 align="center" bgcolor=#FF9933>
+   <td width=150 align="center" bgcolor=#708090>
       글번호
    </td>
    <td >
@@ -133,7 +133,7 @@
    </td>
   </tr>
   <tr>
-    <td width="150" align="center" bgcolor="#FF9933">
+    <td width="150" align="center" bgcolor="#708090">
       작성자 아이디
    </td>
    <td >
@@ -141,7 +141,7 @@
    </td>
   </tr>
   <tr>
-    <td width="150" align="center" bgcolor="#FF9933">
+    <td width="150" align="center" bgcolor="#708090">
       제목 
    </td>
    <td>
@@ -149,7 +149,7 @@
    </td>   
   </tr>
   <tr>
-    <td width="150" align="center" bgcolor="#FF9933">
+    <td width="150" align="center" bgcolor="#708090">
       내용
    </td>
    <td>
@@ -161,7 +161,7 @@
 	  <c:when test="${not empty imageFileList && imageFileList!='null' }">     <%-- !='null'부분 사실 없어도됨  차라리 !=[] 가 맞음  --%>
 	  <c:forEach var="item" items="${imageFileList }" varStatus="status" >
 	   	<tr>
-		    <td width="150" align="center" bgcolor="#FF9933"  rowspan="2">
+		    <td width="150" align="center" bgcolor="#708090"  rowspan="2">
 		      이미지
 		   </td>
   
@@ -176,22 +176,22 @@
 		  <script>max = ${status.count};</script>
 		</c:forEach> 
 		  <tr id="tr_file_upload">
-		 	<td width="150" align="center" bgcolor="#FF9933"> </td>
+		 	<td width="150" align="center" bgcolor="#708090"> </td>
 			 <td align="center"><input type="button" value="파일 추가" onclick="fn_addFile2()" /></td>
           </tr>
           <tr>
-        	 	<td width="150" align="center" bgcolor="#FF9933"> </td>
+        	 	<td width="150" align="center" bgcolor="#708090"> </td>
          		<td align="center"><div id="d_file" ></div></td>
          </tr>
 		</c:when>
 
 		 <c:otherwise>
 		    <tr id="tr_file_upload">
-				 <td width="150" align="center" bgcolor="#FF9933"></td>
+				 <td width="150" align="center" bgcolor="#708090"></td>
 				<td align="center"><input type="button" value="파일 추가" onclick="fn_addFile()" /></td>
 			 </tr>
         	 <tr>
-        	 	<td width="150" align="center" bgcolor="#FF9933"></td>
+        	 	<td width="150" align="center" bgcolor="#708090"></td>
          		<td align="center"><div id="d_file" ></div></td>
          	</tr>
 			
@@ -199,7 +199,7 @@
 
 	 </c:choose>
   <tr>
-	   <td width="150" align="center" bgcolor="#FF9933">등록일자 </td>
+	   <td width="150" align="center" bgcolor="#708090">등록일자 </td>
 	   <td>
 	    <input type=text value="<fmt:formatDate value="${article.writeDate}" />" disabled />
 	   </td>   

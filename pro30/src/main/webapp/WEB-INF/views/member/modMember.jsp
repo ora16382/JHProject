@@ -21,7 +21,8 @@
 </head>
 <body>
 	<form method="post"   action="${contextPath}/member/modifyMember.do">
-	<h1  class="text_center">회원 정보 수정창</h1>
+	<fieldset>
+	<legend>회원 가입창</legend>
 	<table  align="center">
 	   <tr>
 	      <td width="200"><p align="right">아이디</td>
@@ -44,6 +45,7 @@
 	       <td width="400"><input type="submit" value="수정하기"><input type="reset" value="다시입력"></td>
 	    </tr>
 	</table>
+	</fieldset>
 	</form>
 </body>
 </html>

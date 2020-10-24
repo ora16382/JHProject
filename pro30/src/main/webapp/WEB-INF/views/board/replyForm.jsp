@@ -50,28 +50,28 @@ window.onload = function(){
   <form name="frmReply" method="post"  action="${contextPath}/board/addNewArticle.do"   enctype="multipart/form-data">
     <table align="center">
     	<tr>
-    		<td width="150" align="center" bgcolor="#FF9933">부모글</td>
+    		<td width="150" align="center" bgcolor="#708090">부모글</td>
     		<td><input type="text" size="67" value="${param.parentTitle}" disabled/>
     		<td><input type="hidden" name="parentNO" value="${param.parentNO}"/>
     	</tr>
     <tr>
-		<td width="150" align="center" bgcolor="#FF9933">작성자 </td>
+		<td width="150" align="center" bgcolor="#708090">작성자 </td>
 	   <td colspan="2" align="left"><input type="text" size="20"  maxlength="100" value="${member.name}" readonly/></td>
 		</tr>
 		<tr>
-			<td width="150" align="center" bgcolor="#FF9933">글제목:&nbsp;  </td>
+			<td width="150" align="center" bgcolor="#708090">글제목:&nbsp;  </td>
 			<td><input type="text" size="67"  maxlength="100" name="title" /></td>
 		</tr>
 		<tr>
-			<td width="150" align="center" bgcolor="#FF9933" valign="top"><br>글내용:&nbsp; </td>
+			<td width="150" align="center" bgcolor="#708090" valign="top"><br>글내용:&nbsp; </td>
 			<td align="left"><textarea name="content" rows="10" cols="65" maxlength="4000"> </textarea> </td>
 		</tr>
 		<tr>
-			  <td width="150" align="center" bgcolor="#FF9933">이미지파일 첨부:  </td>
+			  <td width="150" align="center" bgcolor="#708090">이미지파일 첨부:  </td>
          <td align="left"><input type="button" value="파일 추가" onclick="fn_addFile()" /></td>
 		</tr>
 		 <tr>
-     	 <td width="150" align="center" bgcolor="#FF9933"></td>
+     	 <td width="150" align="center" bgcolor="#708090"></td>
         <td colspan="2" align="center"><div id="d_file" ></div></td>
          
 	 	</tr>

@@ -14,19 +14,22 @@
 <meta charset="UTF-8">
 <title>사이드 메뉴</title>
 <style>
+	a{
+		color:black;
+	}
 	.no_unerline {
 		text-decoration: none;
 	}
 </style>
 </head>
 <body>
-	<h1>사이드 메뉴</h1>
+	<h1>Side Menu</h1>
 	<h1>
-		<a href="${contextPath}/member/listMembers.do" class="no_unerline">회원 관리</a><br>
-		<a href="${contextPath}/board/listArticles.do" class="no_unerline">게시판관리</a><br>
-		<a href="#" class="no_unerline">상품 관리</a><br>
+		<a href="${contextPath}/member/listMembers.do" class="no_unerline">Member Manage</a><br>
+		<a href="${contextPath}/board/listArticles.do" class="no_unerline">Board Manage</a><br>
+		<a href="#" class="no_unerline">Product Manage</a><br>
 	</h1>
 	
-	<div style="position:fixed;  bottom:2em; left:3em"  ><a  href="${contextPath}/member/memberForm.do"><h1 style="text-align:center">회원가입</h1></a></div>
+	<div style="position:fixed;  bottom:2em; left:3em"  ><a  href="${contextPath}/member/memberForm.do"><h1 style="text-align:center">Sign Up</h1></a></div>
 </body>
 </html>

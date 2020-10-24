@@ -24,15 +24,13 @@ public class HomeController {
 	 */
 	//@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-<<<<<<< HEAD
 
-=======
-	//한글테스트입니다.
-		System.out.println("한글테스트입니다.");
-		System.out.println("섹스킹");
-		System.out.println("섹스킹");
-		System.out.println("섹스킹");
->>>>>>> refs/remotes/origin/master
+	//�븳湲��뀒�뒪�듃�엯�땲�떎.
+		System.out.println("�븳湲��뀒�뒪�듃�엯�땲�떎.");
+		System.out.println("�꽮�뒪�궧");
+		System.out.println("�꽮�뒪�궧");
+		System.out.println("�꽮�뒪�궧");
+
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		

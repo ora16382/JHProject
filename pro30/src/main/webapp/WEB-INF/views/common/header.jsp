@@ -11,21 +11,22 @@
 <!DOCTYPE html>
 <html>
 <head>
+	
   <meta charset="UTF-8">
 <title>헤더</title>
 </head>
 <body>
 <table border=0  width="100%">
   <tr>
-     <td>
+     <td style="padding-left:0" >
 		<a href="${contextPath}/main.do">
-			<img src="${contextPath}/resources/image/duke.png"  />
+			<img width="250px" height="100px" src="${contextPath}/resources/image/spring.jpg"  />
 		</a>
      </td>
-     <td>
-       <h1><font size=30>스프링실습 홈페이지!!</font></h1>
+     <td >
+       <h1><font size=30>Spring HomePage</font></h1>
      </td>
-     
+     	
      <td>
        <!-- <a href="#"><h3>로그인</h3></a> -->
        <c:choose>
